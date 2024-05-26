@@ -1,0 +1,62 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Persistencia;
+
+import Modelo.Comunas;
+import static Persistencia.Conexion_BD.getConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author andre
+ */
+public class Comunas_DAO 
+{
+    Connection conexion;
+    private PreparedStatement sentenciaPreparada; 
+    private ResultSet resultado;
+    
+     public ArrayList<Comunas> TraerNombresComunas() 
+    {
+        ArrayList<Comunas> elementos = new ArrayList<>();
+        try 
+        {
+            conexion = getConnection();
+            String SQL = "SELECT CUT_Comuna, Nombre_Comuna FROM users_2023.comunas_sistema_firmas ORDER BY CUT_Comuna;";
+            sentenciaPreparada = conexion.prepareStatement(SQL);
+            resultado = sentenciaPreparada.executeQuery();
+            while (resultado.next()) 
+            {
+                int CodigoComuna = resultado.getInt("CUT_Comuna");
+                String NombreComuna = resultado.getString("Nombre_Comuna");
+                                
+                Comunas common = new Comunas(CodigoComuna, NombreComuna);
+                
+                elementos.add(common);
+            }
+            conexion.close();
+        } 
+        catch (SQLException ex) 
+        {
+           System.out.println("Error al Obtener Comuna : "+ex.getMessage());
+        }
+        finally
+        {
+            try 
+            {
+                conexion.close();
+            } 
+            catch (SQLException e) 
+            {
+                System.out.println("Error: "+e.getMessage());
+            }
+        }
+        return elementos;
+    }
+}

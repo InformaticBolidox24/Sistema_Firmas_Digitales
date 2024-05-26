@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>Controlador_Usuarios</servlet-name>
+        <servlet-class>Controlador.Controlador_Usuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controlador_Login</servlet-name>
+        <servlet-class>Controlador.Controlador_Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controller_Logout</servlet-name>
+        <servlet-class>Controlador.Controller_Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Controller_GestionUsuarios</servlet-name>
+        <servlet-class>Controlador.Controller_GestionUsuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetUserInfo</servlet-name>
+        <servlet-class>Controlador.GetUserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Controlador_Usuarios</servlet-name>
+        <url-pattern>/Controlador_Usuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controlador_Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controller_Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controller_GestionUsuarios</servlet-name>
+        <url-pattern>/GestionDeUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetUserInfo</servlet-name>
+        <url-pattern>/GetUserInfo</url-pattern>
+    </servlet-mapping>
+</web-app>
